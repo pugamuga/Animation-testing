@@ -8,4 +8,13 @@
     body {
       @apply  leading-normal scrollbar-hide select-none overflow-x-hidden
     }
+    .mainDiv {
+      @apply flex justify-center items-center h-[100vh] bg-gradient-to-br from-violet-600 to-sky-400
+    }
+    .box {
+      @apply h-[100px] w-[100px]  drop-shadow-xl
+    }
+    .btn {
+      @apply h-[40px] w-[100px] active:scale-90 active:opacity-60 bg-yellow-300 drop-shadow-xl font-extrabold rounded-md
+    }
 }

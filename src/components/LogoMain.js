@@ -9,7 +9,7 @@ const LogoMain = () => {
       className="flex flex-col items-center relative drop-shadow-md"
     >
       <motion.h1
-      whileTap={{rotate: 45 , scale:1.2}}
+      whileTap={{rotate: 45 , scale:1.4}}
         initial={{ rotate: 45, scale:1 }}
         animate={{ rotate: 0, scale:1 }}
         transition={{ delay: 0.1 }}
@@ -18,9 +18,9 @@ const LogoMain = () => {
         💪
       </motion.h1>
       <motion.h1
-      whileTap={{rotate: 45, scaleX: -1.2, y: -47, x: -12 }}
+      whileTap={{rotate: 45, scaleX: -1.4,scaleY: 1.4, y: -59, x: -6 }}
         initial={{ rotate: 45, scaleX: -1, y: -40, x: -20 }}
-        animate={{ rotate: 0, scaleX: -1, y: 0, x: 0 }}
+        animate={{ rotate: 0, scaleX: -1,scaleY: 1, y: 0, x: 0 }}
         transition={{ delay: 0.1 }}
         className=" absolute top-0 right-[-135px] text-5xl origin-left scale-x-[-100%] cursor-pointer"
       >

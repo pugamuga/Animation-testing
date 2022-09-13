@@ -14,21 +14,23 @@ const ButtonsMap = ({ buttonsAmount }) => {
           : emAr.length > 2
           ? "lg:grid-cols-3"
           : "lg:grid-cols-2"
-      }  mt-24 lg:gap-x-32 lg:gap-y-12 gap-y-12 grid-cols-2 gap-x-12 relative z-40 scale-75 lg:scale-100`}
+      }  mt-24 lg:gap-x-32 lg:gap-y-12 gap-y-12 grid-cols-2 gap-x-16 relative z-40 scale-75 lg:scale-100`}
     >
       {emAr.map((item, i) => {
         return (
+            <Link key={i} to={`/${item}`} >
           <motion.button
           whileHover={{ scale:.83}}
           whileTap={{scale:1}}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            key={i}
+            
             className="  
             text-center bg-yellow-200 ring-4 active:ring-0 active:bg-black active:text-white hover:ring-black hover:bg-slate-700 transition-all duration-500 ease-out drop-shadow-md hover:ring-[20px] ring-yellow-400 h-12 w-36 font-extrabold"
           >
-            <Link to={`/${item}`} >{item} part</Link>
+            {item} part
           </motion.button>
+          </Link>
         );
       })}
     </div>
