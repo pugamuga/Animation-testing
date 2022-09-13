@@ -6,6 +6,6 @@
 
 @layer base {
     body {
-      @apply  leading-normal scrollbar-hide
+      @apply  leading-normal scrollbar-hide select-none overflow-x-hidden
     }
 }

@@ -10,11 +10,11 @@ const ButtonsMap = ({ buttonsAmount }) => {
     <div
       className={` grid ${
         emAr.length == 1
-          ? "grid-cols-1"
+          ? "lg:grid-cols-1"
           : emAr.length > 2
-          ? "grid-cols-3"
-          : "grid-cols-2"
-      }  mt-24 gap-x-32 gap-y-8`}
+          ? "lg:grid-cols-3"
+          : "lg:grid-cols-2"
+      }  mt-24 lg:gap-x-32 lg:gap-y-12 gap-y-12 grid-cols-2 gap-x-12 relative z-40 scale-75 lg:scale-100`}
     >
       {emAr.map((item, i) => {
         return (
@@ -27,7 +27,7 @@ const ButtonsMap = ({ buttonsAmount }) => {
             className="  
             text-center bg-yellow-200 ring-4 active:ring-0 active:bg-black active:text-white hover:ring-black hover:bg-slate-700 transition-all duration-500 ease-out drop-shadow-md hover:ring-[20px] ring-yellow-400 h-12 w-36 font-extrabold"
           >
-            <Link to={"/"} >{item} part</Link>
+            <Link to={`/${item}`} >{item} part</Link>
           </motion.button>
         );
       })}
