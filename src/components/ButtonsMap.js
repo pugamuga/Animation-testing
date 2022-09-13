@@ -26,7 +26,7 @@ const ButtonsMap = ({ buttonsAmount }) => {
             animate={{ opacity: 1, y: 0 }}
             
             className="  
-            text-center bg-yellow-200 ring-4 active:ring-0 active:bg-black active:text-white hover:ring-black hover:bg-slate-700 transition-all duration-500 ease-out drop-shadow-md hover:ring-[20px] ring-yellow-400 h-12 w-36 font-extrabold"
+            text-center rounded-sm bg-yellow-200 ring-4 active:ring-0 active:bg-black active:text-white hover:ring-black hover:bg-slate-700 transition-all duration-500 ease-out drop-shadow-md hover:ring-[20px] ring-yellow-400 h-12 w-36 font-extrabold"
           >
             {item} part
           </motion.button>

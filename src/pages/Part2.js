@@ -15,7 +15,7 @@ const Part2 = ({ setPageNum }) => {
   return (
     <div
       style={{ backgroundImage: `url(${warImage})` }}
-      className=" mainDiv relative"
+      className=" mainDiv relative "
     >
       <h1 className=" absolute top-5 text-white/20 text-3xl font-extrabold">
         Part 2
