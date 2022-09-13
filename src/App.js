@@ -1,50 +1,35 @@
-import banana from "../src/assets/banana.png";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import React from "react";
+import LogoMain from "./components/LogoMain";
+import emptyArray from "./functions/emptyArray";
 
-function App() {
-  const [click, setClick] = useState(false);
+const emAr = [];
+emptyArray(emAr, 1);
 
-  const generateX = () => {
-    let num = Math.floor(Math.random() * 350);
-    if (num < 20) {
-      generateX();
-    } else {
-      console.log(num);
-      return num;
-    }
-  };
-
+const App = () => {
   return (
-    <div>
-      <div className=" absolute">
-        <button
-          className="bg-slate-500"
-          onClick={() => {
-            setClick(true);
-          }}
+    <div className=" flex justify-center bg-slate-300 h-screen ">
+      <div className="w-2/3 h-2/3 bg-white rounded-b-xl flex justify-start flex-col items-center pt-12 shadow-md">
+        <LogoMain />
+        <div
+          className={`bg-slate-200 grid ${
+            emAr.length == 1
+              ? "grid-cols-1"
+              : emAr.length > 2
+              ? "grid-cols-3"
+              : "grid-cols-2"
+          }  mt-24 gap-x-32 gap-y-8`}
         >
-          banana drop
-        </button>
-        <motion.div
-          animate={
-            click
-              ? {
-                  rotate: [0, 180],
-                  y: [-100, 800],
-                  opacity: [1, 1, 0],
-                  x: [generateX(), generateX()],
-                }
-              : {}
-          }
-          transition={{ duration: 2, ease: "linear" }}
-          className={click ? null : "hidden"}
-        >
-          <img src={banana} alt="banana" className="w-8" />
-        </motion.div>
+          {emAr.map((item) => {
+            return (
+              <button className=" text-center bg-slate-400 h-12 w-36 rounded-md font-extrabold">
+                {item } part
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;
