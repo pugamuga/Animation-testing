@@ -12,26 +12,32 @@ import Part6 from "./pages/Part6";
 import Part7 from "./pages/Part7";
 import Part8 from "./pages/Part8";
 import Part9 from "./pages/Part9";
+import ForvardBtn from './components/ForvardBtn';
+import BackByOne from './components/BackByOne';
 
 const App = () => {
   const [backBtn, setBackBtn] = useState(true);
+  const [pageNum, setPageNum] = useState(0);
+
   return (
     <div>
       <AnimatePresence>
         <Routes>
           <Route path="/" element={<Home setBackBtn={setBackBtn} />} />
-          <Route path="/1" element={<Part1 />} />
-          <Route path="/2" element={<Part2 />} />
-          <Route path="/3" element={<Part3 />} />
-          <Route path="/4" element={<Part4 />} />
-          <Route path="/5" element={<Part5 />} />
-          <Route path="/6" element={<Part6 />} />
-          <Route path="/7" element={<Part7 />} />
-          <Route path="/8" element={<Part8 />} />
-          <Route path="/9" element={<Part9 />} />
+          <Route path="/1" element={<Part1 setPageNum={setPageNum}/>} />
+          <Route path="/2" element={<Part2 setPageNum={setPageNum}/>} />
+          <Route path="/3" element={<Part3 setPageNum={setPageNum}/>} />
+          <Route path="/4" element={<Part4 setPageNum={setPageNum}/>} />
+          <Route path="/5" element={<Part5 setPageNum={setPageNum}/>} />
+          <Route path="/6" element={<Part6 setPageNum={setPageNum}/>} />
+          <Route path="/7" element={<Part7 setPageNum={setPageNum}/>} />
+          <Route path="/8" element={<Part8 setPageNum={setPageNum}/>} />
+          <Route path="/9" element={<Part9 setPageNum={setPageNum}/>} />
         </Routes>
       </AnimatePresence>
       {backBtn && <BackBtn />}
+      {backBtn && <ForvardBtn pageNum={pageNum}/>}
+      {backBtn && <BackByOne pageNum={pageNum}/>}
     </div>
   );
 };

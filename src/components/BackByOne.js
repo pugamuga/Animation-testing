@@ -2,15 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import btn from "../assets/btn.png";
 
-const ForvardBtn = ({ pageNum }) => {
+const BackByOne = ({pageNum}) => {
   return (
-    <Link to={`/${pageNum == 9 ? "" : pageNum + 1}`}>
+    <Link to={`/${pageNum-1}`}>
       <div
-        onClick={() => {
-          console.log(pageNum);
-        }}
-        className="fixed bottom-5 right-5 opacity-70 hover:opacity-100 active:opacity-100 z-50 active:scale-75 transition-all duration-300"
-      >
+      onClick={() => {
+        console.log(pageNum)
+      }}
+      className={`${pageNum==1&&"hidden"} fixed bottom-[100px] right-5 opacity-70 hover:opacity-100 active:opacity-100 z-50 active:scale-75 transition-all duration-300`}>
         <img src={btn} alt="" className=" w-24" />
         <div className="text-gray-400 drop-shadow-2xl absolute top-[30px] left-7">
           <svg
@@ -19,7 +18,7 @@ const ForvardBtn = ({ pageNum }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-8 h-8 mt-[3px] ml-[2px]"
+            className="w-8 h-8 mt-[3px] ml-[2px] rotate-180"
           >
             <path
               strokeLinecap="round"
@@ -33,4 +32,4 @@ const ForvardBtn = ({ pageNum }) => {
   );
 };
 
-export default ForvardBtn;
+export default BackByOne;

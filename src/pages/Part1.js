@@ -8,10 +8,14 @@ import React, {
 import warImage from "../assets/war.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Part1 = () => {
+const Part1 = ({setPageNum}) => {
   const [animate, setAnimate] = useState(false);
   const [topOrBottom, seTopOrBottom] = useState(false);
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setPageNum(1)
+  }, []);
 
   useEffect(() => {
     if (count == 2) {
@@ -26,7 +30,7 @@ const Part1 = () => {
     <div
       style={{ backgroundImage: `url(${warImage})` }}
       className=" mainDiv relative"
-    >
+    ><h1 className=" absolute top-5 text-white/20 text-3xl font-extrabold">Part 1</h1>
       <motion.div
         initial={{ x: "-30vw", y: 0 }}
         animate={{
