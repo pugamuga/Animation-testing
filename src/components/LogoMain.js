@@ -42,7 +42,7 @@ const LogoMain = () => {
         initial={{ y: -30 }}
         animate={{ y: 0 }}
         transition={{ delay: 0.1 }}
-        className=" text-2xl font-extrabold z-20"
+        className=" text-2xl  font-extrabold px-2 pb-1 z-20 bg-yellow-400 "
       >
         Framer Motion{" "}
       </motion.h1>
@@ -50,7 +50,7 @@ const LogoMain = () => {
         initial={{ y: 30 }}
         animate={{ y: 0 }}
         transition={{ delay: 0.1 }}
-        className=" text-md text-white  px-2 pb-1 z-20 bg-yellow-400 font-testFont"
+        className=" text-md text-black/50 mt-2 px-2 pb-1 z-20 bg-yellow-400 font-sans"
       >
         training camp
       </motion.h1>
