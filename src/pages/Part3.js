@@ -14,6 +14,7 @@ const Part3 = ({setPageNum}) => {
       <h1 className=" absolute top-5 text-white/20 text-3xl font-extrabold">
         Part 3
       </h1>
+      <div className=' box bg-white rounded-md'></div>
     </div>
   )
 }

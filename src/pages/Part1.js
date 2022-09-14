@@ -29,7 +29,7 @@ const Part1 = ({setPageNum}) => {
   return (
     <div
       style={{ backgroundImage: `url(${warImage})` }}
-      className=" mainDiv relative"
+      className=" mainDiv relative bg-cover"
     ><h1 className=" absolute top-5 text-white/20 text-3xl font-extrabold">Part 1</h1>
       <motion.div
         initial={{ x: "-30vw", y: 0 }}

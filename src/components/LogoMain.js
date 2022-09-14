@@ -9,35 +9,37 @@ const LogoMain = () => {
       className="flex flex-col items-center relative drop-shadow-md"
     >
       <motion.h1
-      whileTap={{rotate: 45 , scale:1.4}}
-        initial={{ rotate: 45, scale:1 }}
-        animate={{ rotate: 0, scale:1 }}
+        whileTap={{ rotate: 45, scale: 1.4 }}
+        initial={{ rotate: 45, scale: 1 }}
+        animate={{ rotate: 0, scale: 1 }}
         transition={{ delay: 0.1 }}
         className=" absolute top-0 left-[-70px] origin-right text-5xl cursor-pointer"
       >
         💪
       </motion.h1>
       <motion.h1
-      whileTap={{rotate: 45, scaleX: -1.4,scaleY: 1.4, y: -59, x: -6 }}
+        whileTap={{ rotate: 45, scaleX: -1.4, scaleY: 1.4, y: -59, x: -6 }}
         initial={{ rotate: 45, scaleX: -1, y: -40, x: -20 }}
-        animate={{ rotate: 0, scaleX: -1,scaleY: 1, y: 0, x: 0 }}
+        animate={{ rotate: 0, scaleX: -1, scaleY: 1, y: 0, x: 0 }}
         transition={{ delay: 0.1 }}
         className=" absolute top-0 right-[-135px] text-5xl origin-left scale-x-[-100%] cursor-pointer"
       >
         💪
       </motion.h1>
       <motion.div
-      whileHover={{ scale:2.5}}
-      initial={{x:30, scale:3}}
-      animate={{x:0, scale:3}}
-      transition={{ delay: 0.3 }}
-      className="absolute scale-[300%]  top-[30px] border-t-yellow-200 z-10 border-t-[40px] border-r-[25px] border-r-transparent border-l-[25px] border-l-transparent"></motion.div>
+        whileHover={{ scale: 2.5 }}
+        initial={{ x: 30, scale: 3 }}
+        animate={{ x: 0, scale: 3 }}
+        transition={{ delay: 0.3 }}
+        className="absolute scale-[300%]  top-[30px] border-t-yellow-200 z-10 border-t-[40px] border-r-[25px] border-r-transparent border-l-[25px] border-l-transparent"
+      ></motion.div>
       <motion.div
-          whileHover={{ scale:2.7}}
-      initial={{x:-30, scale:3.3}}
-      animate={{x:0, scale:3.3}}
-      transition={{ delay: 0.3 }}
-      className="absolute scale-[330%] top-[32px] border-t-yellow-400 z-0 border-t-[40px] border-r-[25px] border-r-transparent border-l-[25px] border-l-transparent"></motion.div>
+        whileHover={{ scale: 2.7 }}
+        initial={{ x: -30, scale: 3.3 }}
+        animate={{ x: 0, scale: 3.3 }}
+        transition={{ delay: 0.3 }}
+        className="absolute scale-[330%] top-[32px] border-t-yellow-400 z-0 border-t-[40px] border-r-[25px] border-r-transparent border-l-[25px] border-l-transparent"
+      ></motion.div>
       <motion.h1
         initial={{ y: -30 }}
         animate={{ y: 0 }}

@@ -9,9 +9,9 @@ const ForvardBtn = ({ pageNum }) => {
         onClick={() => {
           console.log(pageNum);
         }}
-        className="fixed bottom-5 right-5 opacity-70 hover:opacity-100 active:opacity-100 z-50 active:scale-75 transition-all duration-300"
+        className="fixed bottom-1 right-1 opacity-70 hover:opacity-100 active:opacity-100 z-50 active:scale-75 transition-all duration-300"
       >
-        <img src={btn} alt="" className=" w-24" />
+        <img src={btn} alt="" className=" w-20" />
         <div className="text-gray-400 drop-shadow-2xl absolute top-[30px] left-7">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ const ForvardBtn = ({ pageNum }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-8 h-8 mt-[3px] ml-[2px]"
+            className="w-8 h-8 mt-[-4px] ml-[-4px]"
           >
             <path
               strokeLinecap="round"

@@ -20,7 +20,7 @@ const App = () => {
   const [pageNum, setPageNum] = useState(0);
 
   return (
-    <div>
+    <div className='h-[100vh] w-[100vw]'>
       <AnimatePresence>
         <Routes>
           <Route path="/" element={<Home setBackBtn={setBackBtn} />} />
