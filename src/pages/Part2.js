@@ -35,7 +35,7 @@ const Part2 = ({ setPageNum }) => {
   return (
     <div
       style={{ backgroundImage: `url(${warImage})` }}
-      className=" mainDiv relative "
+      className=" mainDiv relative bg-cover "
     >
       <input
         className=" bar"

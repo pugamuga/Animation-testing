@@ -23,4 +23,7 @@
     .tr {
       @apply transition-all duration-300
     }
+    .superflex {
+      @apply flex justify-center items-center
+    }
 }
