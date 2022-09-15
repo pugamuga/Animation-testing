@@ -9,7 +9,7 @@ const Sword = () => {
       animate={{y:0}}
         whileTap={{ rotate: 30 }}
         initial={{ rotate: 0, scale: 0.8, x: 100, y:1500 }}
-        transition={{ duration: .9, type: "spring" }}
+        transition={{  type: "spring" }}
         src={sword}
         alt=""
         className=" origin-bottom z-10 cursor-pointer"
@@ -20,7 +20,7 @@ const Sword = () => {
       animate={{y:0}}
         whileTap={{ rotate: -30 }}
         initial={{ rotate: 0, scale: 0.8, x: -100, y:1500 }}
-        transition={{ duration: .9, type: "spring" }}
+        transition={{  type: "spring" }}
         src={sword}
         alt=""
         className=" origin-bottom z-10 cursor-pointer"

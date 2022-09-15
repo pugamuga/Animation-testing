@@ -13,7 +13,7 @@ import Part3Timer from "../components/Part3Timer";
 import { ticTacToe, skulls } from "hero-patterns";
 
 const Part3 = ({ setPageNum }) => {
-  const [showResult, setShowResult] = useState(true);
+  const [showResult, setShowResult] = useState(false);
 
   const [bananaTimes, setBananaTimes] = useState(0);
   console.log(bananaTimes);
@@ -91,6 +91,9 @@ const Part3 = ({ setPageNum }) => {
       <h1 className=" absolute top-5 text-white/20 text-3xl font-extrabold">
         Part 3
       </h1>
+      <div className=" absolute top-6 right-6 rounded-full flex justify-center items-center h-8 w-8 bg-black">
+            <h1 className=" text-yellow-300 mb-[2px] text-sm">{bananaTimes}</h1>
+          </div>
       <div className=" absolute tr top-[100px] flex flex-row gap-x-5 items-center">
         <div
           onClick={() => {
@@ -103,9 +106,7 @@ const Part3 = ({ setPageNum }) => {
           <ArrowLeft />
         </div>
         <div className=" h-[60px] relative w-[60px] ring-4 ring-white/10 flex justify-center items-center rounded-full bg-black">
-          <div className=" absolute top-[-14px]  rounded-full right-[-14px] flex justify-center items-center h-8 w-8 bg-black">
-            <h1 className=" text-yellow-300 text-sm">{bananaTimes}</h1>
-          </div>
+          
           <h1 className="mb-2 text-4xl font-extrabold text-yellow-300">
             {counter}
           </h1>
@@ -262,21 +263,21 @@ const Result = ({ bananaTimes, setBananaTimes, setShowResult }) => {
         <div className="flex">
           <h1
             className={`text-5xl ${
-              bananaTimes > 20 ? "grayscale-0" : " grayscale"
+              bananaTimes > 15 ? "grayscale-0" : " grayscale"
             } drop-shadow-lg mt-8`}
           >
             🍌
           </h1>
           <h1
             className={`text-5xl ${
-              bananaTimes > 40 ? "grayscale-0" : " grayscale"
+              bananaTimes > 25 ? "grayscale-0" : " grayscale"
             } drop-shadow-lg mt-8`}
           >
             🍌
           </h1>
           <h1
             className={`text-5xl ${
-              bananaTimes > 60 ? "grayscale-0" : " grayscale"
+              bananaTimes > 50 ? "grayscale-0" : " grayscale"
             } drop-shadow-lg mt-8`}
           >
             🍌
