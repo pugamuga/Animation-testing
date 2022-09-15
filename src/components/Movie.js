@@ -13,9 +13,12 @@ const Movie = ({ item }) => {
   const result = item.popularity / 1000;
   return (
     <motion.div
-    layout
-    initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}
-    className=" bg-white/30 w-full rounded-md p-1 relative">
+      layout
+      initial={{ opacity: 0 , scale:.85}}
+      animate={{ opacity: 1 , scale:1}}
+      exit={{ opacity: 0 , scale:.85}}
+      className=" bg-white/30 w-full rounded-md p-1 relative"
+    >
       <h1 className="px-2 text-sm font-bold h-12 lg:h-7 text-center">
         {item.title}
       </h1>

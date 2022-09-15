@@ -86,7 +86,7 @@ const Part5 = ({ setPageNum }) => {
           bg
             ? "bg-opacity-80 border-opacity-100  "
             : "bg-opacity-0 border-opacity-0 "
-        }  top-0 border-b-2 border-yellow-300 justify-center flex  items-center h-[80px] w-full transition-all duration-700 bg-black`}
+        }  top-0 border-b-2 border-yellow-300 justify-center flex z-30 items-center h-[80px] w-full transition-all duration-700 bg-black`}
       >
         <h1
           className={` px-6 pb-1 transition-all duration-700 text-3xl font-extrabold ${
