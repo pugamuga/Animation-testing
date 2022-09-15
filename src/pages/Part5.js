@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext, useReducer } from 'react';
 import warImage from "../assets/war.jpg";
+import Movie from '../components/Movie';
 
 
 const Part5 = ({setPageNum}) => {
@@ -28,6 +29,11 @@ const Part5 = ({setPageNum}) => {
       <h1 className=" absolute top-5 text-white/20 text-3xl font-extrabold">
         Part 5
       </h1>
+      <div className=' absolute top-1 grid grid-cols-2 lg:grid-cols-3 justify-items-center gap-3 lg:px-[200px] p-4'>
+        {popular.map((item, i)=>{
+          return <Movie key={item.id} item={item}/>
+        })}
+      </div>
     </div>
   )
 }
