@@ -45,6 +45,7 @@ const Part3 = ({ setPageNum }) => {
 
   const variantSmall = {
     born: {
+      opacity:0,
       scale: 0,
       rotation: 0,
       transition: {
@@ -53,6 +54,7 @@ const Part3 = ({ setPageNum }) => {
       },
     },
     live: {
+      opacity:1,
       scale: 1,
       rotation: 90,
       transition: {
@@ -61,6 +63,7 @@ const Part3 = ({ setPageNum }) => {
       },
     },
     dead: {
+      opacity:0,
       scale: 0,
       rotation: 0,
       transition: {
@@ -125,7 +128,8 @@ const Part3 = ({ setPageNum }) => {
       {showResult ? (
         <Result bananaTimes={bananaTimes} setBananaTimes={setBananaTimes} setShowResult={setShowResult} />
       ) : (
-        <div
+        <motion.div
+        layout
           style={{
             width:
               counter == 2
@@ -167,6 +171,7 @@ const Part3 = ({ setPageNum }) => {
 
               return (
                 <motion.div
+                layout
                   onClick={() => {
                     setPickApe(test[i]);
                     setPickBanana((prev) => !prev);
@@ -190,7 +195,7 @@ const Part3 = ({ setPageNum }) => {
               );
             })}
           </AnimatePresence>
-        </div>
+        </motion.div>
       )}
     </div>
   );
