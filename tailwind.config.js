@@ -4,8 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/img/hero-pattern.svg')",
-        'footer-texture': "url('/img/footer-texture.png')",
+        'gradient-radial': 'radial-gradient(var(--gradient-color-stops))',
       },
       fontFamily: {
         testFont: "'Rubik Distressed', cursive",
