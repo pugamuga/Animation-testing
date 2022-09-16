@@ -4,7 +4,7 @@ import btn from "../assets/btn.png";
 
 const BackBtn = () => {
   return (
-    <Link to={`/`}>
+    <Link to={`/Animation-testing`}>
       <div className="fixed bottom-1 left-1 opacity-70 hover:opacity-100 active:opacity-100 z-50 active:scale-75 transition-all duration-300">
         <img src={btn} alt="" className=" w-20" />
         <div className="text-gray-400 drop-shadow-2xl absolute top-[30px] left-7">

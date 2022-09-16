@@ -29,7 +29,7 @@ const App = () => {
     <div className="h-[100vh] w-[100vw]">
       <AnimatePresence>
         <Routes>
-          <Route path="/" element={<Home setBackBtn={setBackBtn} />} />
+          <Route path="/Animation-testing" element={<Home setBackBtn={setBackBtn} />} />
           <Route path="/1" element={<Part1 setPageNum={setPageNum} />} />
           <Route path="/2" element={<Part2 setPageNum={setPageNum} />} />
           <Route path="/3" element={<Part3 setPageNum={setPageNum} />} />
