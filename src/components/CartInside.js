@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fruits } from "../data";
+import DeleteAllItemsIcon from "./DeleteAllItemsIcon";
 
 const CartInside = ({
   setBgCover,
@@ -16,6 +17,10 @@ const CartInside = ({
   buy,
   setBuy,
 }) => {
+  const totalAmount =
+    buy[0] * fruits[0].price +
+    buy[1] * fruits[1].price +
+    buy[2] * fruits[2].price;
   return (
     <motion.div
       initial={{ opacity: 0, y: -100 }}
@@ -40,7 +45,8 @@ const CartInside = ({
         {[0, 1, 2].map((item) => {
           return (
             <StringOfFruit
-            key={item}
+              item={item}
+              key={item}
               fruitImage={fruits[item].image}
               buy={buy}
               setBuy={setBuy}
@@ -48,11 +54,25 @@ const CartInside = ({
           );
         })}
       </div>
-      <div className=" bg-black px-8 pb-1 rounded-md">
-        <h1 className=" text-yellow-300 font-thin">
-          Total: <span className=" font-extrabold">${0}</span>
-        </h1>
+      <div
+        onClick={() => {
+          setBuy({ 0: 0, 1: 0, 2: 0 });
+        }}
+        className=" absolute top-2 left-2"
+      >
+        <DeleteAllItemsIcon />
       </div>
+      <motion.div
+        initial={{ x: 40, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className=" bg-black px-8 pb-1 rounded-md"
+      >
+        <h1 className=" text-yellow-300 font-thin">
+          Total:{" "}
+          <span className=" font-extrabold">${totalAmount.toFixed(1)}</span>
+        </h1>
+      </motion.div>
       <button
         onClick={() => {
           setBgCover(false);
@@ -69,23 +89,48 @@ const CartInside = ({
 
 export default CartInside;
 
-const StringOfFruit = ({ fruitImage, buy, setBuy }) => {
+const StringOfFruit = ({ fruitImage, buy, setBuy, item }) => {
   const [counterCart, setCounterCart] = useState(0);
-
+  let priceRight = buy[item] * fruits[item].price;
+  console.log(buy[item] + "dssd");
   return (
     <div className="flex w-full justify-between px-4 items-center">
-      <h1 className=" text-4xl -ml-1 drop-shadow-[2px_2px_0_black]">
+      <motion.h1
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.4 + item * 0.1 }}
+        className=" text-4xl -ml-1 drop-shadow-[2px_2px_0_black]"
+      >
         {fruitImage}
-      </h1>
-      <div className="flex flex-row gap-x-3 items-center -ml-3">
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="flex flex-row gap-x-3 items-center -ml-3"
+      >
         <div
           onClick={() => {
-            if (counterCart >= 1) {
-              setCounterCart(counterCart - 1);
+            if (buy[item] >= 1) {
+              if (item == 0) {
+                setBuy((prev) => {
+                  return { ...prev, 0: buy[item] - 1 };
+                });
+              }
+              if (item == 1) {
+                setBuy((prev) => {
+                  return { ...prev, 1: buy[item] - 1 };
+                });
+              }
+              if (item == 2) {
+                setBuy((prev) => {
+                  return { ...prev, 2: buy[item] - 1 };
+                });
+              }
             }
           }}
           className={` superflex h-8 w-8 bg-black rounded-full ${
-            counterCart < 1
+            buy[item] < 1
               ? "opacity-20"
               : "opacity-80 hover:opacity-100 active:scale-90"
           }  transition-all duration-100`}
@@ -94,15 +139,46 @@ const StringOfFruit = ({ fruitImage, buy, setBuy }) => {
             -
           </h1>
         </div>
-        <h1 className="w-3 text-center font-extrabold">{counterCart}</h1>
+        <h1 className="w-6 text-center font-extrabold">{buy[item]}</h1>
         <div
           onClick={() => {
-            if (counterCart < 9) {
-              setCounterCart(counterCart + 1);
+            if (buy[item] < 99) {
+              if (item == 0) {
+                setBuy((prev) => {
+                  return { ...prev, 0: buy[item] + 1 };
+                });
+              }
+              if (item == 1) {
+                setBuy((prev) => {
+                  return { ...prev, 1: buy[item] + 1 };
+                });
+              }
+              if (item == 2) {
+                setBuy((prev) => {
+                  return { ...prev, 2: buy[item] + 1 };
+                });
+              }
+            }
+            if (buy[item] > 99) {
+              if (item == 0) {
+                setBuy((prev) => {
+                  return { ...prev, 0: 99 };
+                });
+              }
+              if (item == 1) {
+                setBuy((prev) => {
+                  return { ...prev, 1: 99 };
+                });
+              }
+              if (item == 2) {
+                setBuy((prev) => {
+                  return { ...prev, 2: 99 };
+                });
+              }
             }
           }}
           className={` superflex h-8 w-8 bg-black rounded-full ${
-            counterCart > 8
+            buy[item] > 98
               ? "opacity-20"
               : "opacity-80 hover:opacity-100 active:scale-90"
           }   transition-all duration-100`}
@@ -111,8 +187,15 @@ const StringOfFruit = ({ fruitImage, buy, setBuy }) => {
             +
           </h1>
         </div>
-      </div>
-      <h1>Price</h1>
+      </motion.div>
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className="w-4 font-extrabold mr-4"
+      >
+        ${priceRight.toFixed(1)}
+      </motion.h1>
     </div>
   );
 };

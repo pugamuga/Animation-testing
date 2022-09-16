@@ -21,8 +21,30 @@ const Part6MobileBottom = ({
   setBuy,
 }) => {
   const [counter, setCounter] = useState(1);
+  const [isAlert, setIsAlert] = useState(false);
   const resultPrice = fruits[fruitNumber].price * counter;
-  console.log(buy)
+  console.log(buy);
+  useEffect(() => {
+    if(buy[0]>99||buy[1]>99||buy[2]>99){
+        if (fruitNumber == 0) {
+            setIsAlert(true)
+            setBuy((prev) => {
+              return { ...prev, 0: 99 };
+            });
+          }
+          if (fruitNumber == 1) {
+            setIsAlert(true)
+            setBuy((prev) => {
+              return { ...prev, 1: 99 };
+            });
+          }
+          if (fruitNumber == 2) {
+            setIsAlert(true)
+            setBuy((prev) => {
+              return { ...prev, 2: 99 };
+            });
+          }}
+  }, [buy]);
 
   const isWindowBig = screenSize > 1000;
   const variantsAnimation = {
@@ -66,7 +88,7 @@ const Part6MobileBottom = ({
       exit={isWindowBig ? "bigInitial" : "smallInitial"}
       transition={{ duration: 0.7, easy: "easyOut" }}
       id="static-bottom"
-      className=" fixed bg-slate-900/80 bottom-0 h-1/2 w-full z-20 lg:left-0 lg:w-1/2 lg:h-full flex flex-col items-center justify-between py-4"
+      className=" fixed bg-slate-900/80 bottom-0  h-1/2 w-full z-20 lg:left-0 lg:w-1/2 lg:h-full flex flex-col items-center justify-between py-4"
     >
       <motion.div
         variants={variantsAnimation}
@@ -141,26 +163,27 @@ const Part6MobileBottom = ({
         transition={{ delay: 0.8, stiffness: 150, damping: 50 }}
         className=""
       >
+        <AnimatePresence>
+          {isAlert&& <LimitAmount />}
+        </AnimatePresence>
         <button
           onClick={() => {
-            if(fruitNumber==0){
-
-                setBuy((prev) => {
-                    return {...prev, 0:counter}
-                })
+            if (fruitNumber == 0) {
+              setBuy((prev) => {
+                return { ...prev, 0: buy[0] + counter };
+              });
             }
-            if(fruitNumber==1){
-
-                setBuy((prev) => {
-                    return {...prev, 1:counter}
-                })
+            if (fruitNumber == 1) {
+              setBuy((prev) => {
+                return { ...prev, 1: buy[1] + counter };
+              });
             }
-            if(fruitNumber==2){
-
-                setBuy((prev) => {
-                    return {...prev, 2:counter}
-                })
+            if (fruitNumber == 2) {
+              setBuy((prev) => {
+                return { ...prev, 2: buy[2] + counter };
+              });
             }
+            
           }}
           className="btn text-black text-sm scale-75 lg:scale-125 lg:mx-6"
         >
@@ -174,12 +197,33 @@ const Part6MobileBottom = ({
           }}
           className="btn text-black text-sm scale-75 lg:scale-125 lg:mx-6"
         >
-          Buy now
+          Go to cart
         </button>
       </motion.div>
-      
     </motion.div>
   );
 };
 
 export default Part6MobileBottom;
+
+const LimitAmount = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 300 }}
+      animate={{ opacity: .5, y: 0 }}
+      exit={{ opacity: 0, y: 300 }}
+      className=" absolute h-[50px]  w-1/2 flex items-center justify-between px-2 bottom-[70px] right-0 left-0 mr-auto ml-auto bg-rose-400 rounded-md"
+    >
+      <h1 className="text-4xl font-extrabold text-red-900">!</h1>
+      <div className="flex flex-col w-full items-center">
+        <h1 className=" text-sm font-extrabold text-red-900 ">
+          Limit is 99 fruits
+        </h1>
+        <h1 className=" text-sm font-extrabold text-red-900 ">
+          Check your cart
+        </h1>
+      </div>
+      <h1 className="text-4xl font-extrabold text-red-900">!</h1>
+    </motion.div>
+  );
+};

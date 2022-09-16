@@ -27,7 +27,6 @@ const Part6 = ({ setPageNum }) => {
     2: 0,
   });
 
-
   const handleResize = () => {
     return setScreenSize(window.innerWidth);
   };
@@ -92,13 +91,19 @@ const Part6 = ({ setPageNum }) => {
         setMainClick={setMainClick}
         setBgCover={setBgCover}
       />
-      <div className=" flex flex-col items-center lg:flex-row gap-y-3 lg:gap-x-5 font-semibold ">
-        <h1 className=" bg-black px-2 pb-1 rounded-md lg:mr-10 text-yellow-300  font-extrabold text-3xl">
+      <div
+      initial={{x:-50}} animate={{x:0}} 
+      className=" flex flex-col items-center lg:flex-row gap-y-3 lg:gap-x-5 font-semibold ">
+        <motion.h1
+        initial={{x:-50, opacity:0}} animate={{x:0, opacity:1}}  className=" bg-black px-2 pb-1 rounded-md lg:mr-10 text-yellow-300  font-extrabold text-3xl">
           Select a fruit
-        </h1>
+        </motion.h1>
         {fruits.map((item, i) => {
           return (
-            <div
+            <motion.div
+              initial={{ y: -40 , opacity:0}}
+              animate={{ y: 0 , opacity:1}}
+              transition={{ delay: 0.1 + i * 0.1 }}
               key={item.id}
               className=" bg-white/30 w-[40vw] lg:w-[10vw] h-[150px] flex items-center justify-between flex-col p-2 rounded-lg"
             >
@@ -117,7 +122,7 @@ const Part6 = ({ setPageNum }) => {
                 <h1>{item.name}</h1>
                 <h1>${item.price}</h1>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

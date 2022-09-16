@@ -1,20 +1,22 @@
 import React from "react";
 import Cart6 from "./Cart6";
+import { motion, AnimatePresence } from "framer-motion";
 
-const Part6Corzina = ({ setMainClick, setIsCartVisible,setBgCover }) => {
+const Part6Corzina = ({ setMainClick, setIsCartVisible, setBgCover }) => {
   return (
-    <div
+    <motion.div
+      initial={{ scale: 0.1 , rotate:90}}
+      animate={{ scale: 1 , rotate:0}}
+      transition={{ ease:"easeOut", duration:.5}}
       onClick={() => {
         setMainClick(false);
         setIsCartVisible(true);
-        setBgCover(true)
+        setBgCover(true);
       }}
-      className="absolute top-2 right-2 lg:top-4 lg:right-4 bg-black h-8 w-28 rounded-full flex items-center justify-between px-3 opacity-60 hover:opacity-100 tr hover:scale-110"
+      className="absolute top-2 right-2 lg:top-4 lg:right-4 bg-black h-10 w-10 rounded-full flex items-center justify-center  opacity-60 hover:opacity-100 tr hover:scale-110"
     >
       <Cart6 />
-      <h1 className="pb-1 text-yellow-300 text-sm">Empty </h1>
-      {/* <h1 className='pb-1 text-yellow-300 text-md font-extrabold' > ${Empty} </h1> */}
-    </div>
+    </motion.div>
   );
 };
 
