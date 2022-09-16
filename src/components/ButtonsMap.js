@@ -14,7 +14,7 @@ const ButtonsMap = ({ buttonsAmount }) => {
           : emAr.length > 2
           ? "lg:grid-cols-3"
           : "lg:grid-cols-2"
-      }  mt-24 lg:gap-x-32 lg:gap-y-12 gap-y-12 grid-cols-2 gap-x-16 relative z-40 scale-75 lg:scale-100`}
+      } lg:mt-36 mt-24 lg:gap-x-32 lg:gap-y-12 gap-y-24 grid-cols-2 gap-x-16 relative z-40 scale-75 lg:scale-100`}
     >
       {emAr.map((item, i) => {
         return (

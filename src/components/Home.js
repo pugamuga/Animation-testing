@@ -27,7 +27,7 @@ const Home = ({ setBackBtn }) => {
        flex justify-start flex-col items-center pt-12 shadow-md"
       >
         <LogoMain />
-        <ButtonsMap buttonsAmount={9} />
+        <ButtonsMap buttonsAmount={6} />
       </div>
     </motion.div>
   );

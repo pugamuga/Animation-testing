@@ -6,8 +6,8 @@ const SwordMobile = () => {
   return (
     <div className=" relative">
       <motion.img
-      whileTap={{rotate: [180,190,170,180]}}
-      initial={{ rotate: 180, scale: 1.8, x: -4, y:-1000}}
+      whileTap={{rotate: [179.8,190,170,179.8]}}
+      initial={{ rotate: 179.8, scale: 1.8, x: -4, y:-1000}}
       animate={{y:0}}
       transition={{ type:"spring"}}
       

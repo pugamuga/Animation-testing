@@ -4,7 +4,7 @@ import btn from "../assets/btn.png";
 
 const ForvardBtn = ({ pageNum }) => {
   return (
-    <Link to={`/${pageNum == 9 ? "" : pageNum + 1}`}>
+    <Link to={`/${pageNum == 6 ? "" : pageNum + 1}`}>
       <div
         onClick={() => {
           console.log(pageNum);
