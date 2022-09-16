@@ -10,12 +10,42 @@ import { fruits } from "../data";
 import { motion, AnimatePresence } from "framer-motion";
 import { ticTacToe, skulls, hideout } from "hero-patterns";
 
-const Part6MobileTop = ({ fruitNumber, setMainClick }) => {
+const Part6MobileTop = ({ fruitNumber, setMainClick, screenSize }) => {
+  const isWindowBig = screenSize > 1000;
+
+  const variantsAnimation = {
+    smallInitial: {
+      y: -700,
+    },
+    smallAnimate: {
+      y: 0,
+    },
+    bigInitial: {
+      x: 900,
+    },
+    bigAnimate: {
+      x: 0,
+    },
+    bananaInitialSmall: {
+      y: -400,
+    },
+    bananaAnimateSmall: {
+      y: 0,
+    },
+    bananaInitialBig: {
+      x: 400,
+    },
+    bananaAnimateBig: {
+      x: 0,
+    },
+  };
+
   return (
     <motion.div
-      initial={{ y: -700 }}
-      animate={{ y: 0 }}
-      exit={{ y: -700 }}
+      variants={variantsAnimation}
+      initial={isWindowBig ? "bigInitial" : "smallInitial"}
+      animate={isWindowBig ? "bigAnimate" : "smallAnimate"}
+      exit={isWindowBig ? "bigInitial" : "smallInitial"}
       transition={{ duration: 0.7, easy: "easyOut" }}
       id="static-top"
       style={{ backgroundImage: hideout("#FFEFD5", 1) }}
@@ -36,8 +66,9 @@ const Part6MobileTop = ({ fruitNumber, setMainClick }) => {
             className=" w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] absolute bg-violet-200 z-20 top-0 left-0 rounded-full"
           ></motion.div>
           <motion.h1
-            initial={{ y: -400 }}
-            animate={{ y: 0 }}
+            variants={variantsAnimation}
+            initial={isWindowBig ? "bananaInitialBig" : "bananaInitialSmall"}
+            animate={isWindowBig ? "bananaAnimateBig" : "bananaAnimateSmall"}
             transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
             className="z-30 relative"
           >

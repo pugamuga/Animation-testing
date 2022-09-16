@@ -16,7 +16,7 @@ const BdCover = () => {
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    transition={{ duration: .7 }}
+    transition={{ duration: .5 }}
     style={{ backgroundImage: `url(${warImage})` }}
     className=" fixed bg-cover h-screen w-screen  z-10"
   ></motion.div>

@@ -10,37 +10,95 @@ import { fruits } from "../data";
 import { motion, AnimatePresence } from "framer-motion";
 import { ticTacToe, skulls, hideout } from "hero-patterns";
 
-const Part6MobileBottom = ({ fruitNumber, setMainClick }) => {
+const Part6MobileBottom = ({
+  fruitNumber,
+  setMainClick,
+  setBgCover,
+  screenSize,
+  setIsCartVisible,
+  setDelayCart,
+  buy,
+  setBuy,
+}) => {
   const [counter, setCounter] = useState(1);
-    const resultPrice =fruits[fruitNumber].price*counter
+  const resultPrice = fruits[fruitNumber].price * counter;
+  console.log(buy)
+
+  const isWindowBig = screenSize > 1000;
+  const variantsAnimation = {
+    smallInitial: {
+      y: 700,
+    },
+    smallAnimate: {
+      y: 0,
+    },
+    bigInitial: {
+      y: 0,
+      x: -900,
+    },
+    bigAnimate: {
+      y: 0,
+      x: 0,
+    },
+    textInitialSmall: {
+      opacity: 0,
+      y: 30,
+    },
+    textAnimateSmall: {
+      opacity: 1,
+      y: 0,
+    },
+    textInitialBig: {
+      opacity: 0,
+      x: -30,
+    },
+    textAnimateBig: {
+      opacity: 1,
+      x: 0,
+    },
+  };
 
   return (
     <motion.div
-      initial={{ y: 700 }}
-      animate={{ y: 0 }}
-      exit={{ y: 700 }}
+      variants={variantsAnimation}
+      initial={isWindowBig ? "bigInitial" : "smallInitial"}
+      animate={isWindowBig ? "bigAnimate" : "smallAnimate"}
+      exit={isWindowBig ? "bigInitial" : "smallInitial"}
       transition={{ duration: 0.7, easy: "easyOut" }}
       id="static-bottom"
       className=" fixed bg-slate-900/80 bottom-0 h-1/2 w-full z-20 lg:left-0 lg:w-1/2 lg:h-full flex flex-col items-center justify-between py-4"
     >
-      <div className=" text-white/50 w-full px-8 flex justify-between items-center">
+      <motion.div
+        variants={variantsAnimation}
+        initial={isWindowBig ? "textInitialBig" : "textInitialSmall"}
+        animate={isWindowBig ? "textAnimateBig" : "textAnimateSmall"}
+        transition={{ delay: 0.6, stiffness: 150, damping: 50 }}
+        className=" text-white/50 w-full px-8 flex justify-between items-center"
+      >
         <h1>Fruit</h1>
         <button
           onClick={() => {
             setMainClick(false);
+            setBgCover(false);
           }}
           className="btn text-black scale-75"
         >
           Back
         </button>
-      </div>
-      <div className=" text-white w-full mb-20 px-12 flex flex-col items-center">
+      </motion.div>
+      <motion.div
+        variants={variantsAnimation}
+        initial={isWindowBig ? "textInitialBig" : "textInitialSmall"}
+        animate={isWindowBig ? "textAnimateBig" : "textAnimateSmall"}
+        transition={{ delay: 0.7, stiffness: 150, damping: 50 }}
+        className=" text-white w-full mb-20 px-12 flex flex-col items-center "
+      >
         <h1 className="text-4xl font-extrabold">
           {fruits[fruitNumber].name}
           {fruits[fruitNumber].image}
         </h1>
         <h1 className="text-sm mt-2">{fruits[fruitNumber].details}</h1>
-        <div className=" flex justify-between mt-8 w-full">
+        <div className=" flex justify-between mt-8 lg:mt-20 w-full lg:mr-8 lg:w-2/3">
           <div className=" flex flex-row gap-x-3 items-center ">
             <div
               onClick={() => {
@@ -48,28 +106,78 @@ const Part6MobileBottom = ({ fruitNumber, setMainClick }) => {
                   setCounter(counter - 1);
                 }
               }}
-              className={`w-8 h-8 rounded-full text-center ${counter < 2&&"opacity-25"} hover:scale-110 bg-white text-black ring-2 ring-black superflex`}
+              className={`w-8 h-8 rounded-full text-center ${
+                counter < 2 && "opacity-25"
+              } hover:scale-110 bg-white text-black ring-2 ring-black superflex active:scale-90`}
             >
               <h1 className=" font-bold mb-[3px]">-</h1>
             </div>
             <h1>{counter}</h1>
-            <div 
-            onClick={() => {
+            <div
+              onClick={() => {
                 if (counter < 9) {
-                    setCounter(counter + 1);
-                  }
-            }}
-            className={`w-8 h-8 rounded-full text-center ${counter > 8&&"opacity-25"} hover:scale-110 bg-white text-black ring-2 ring-black superflex`}>
+                  setCounter(counter + 1);
+                }
+              }}
+              className={`w-8 h-8 rounded-full text-center ${
+                counter > 8 && "opacity-25"
+              } hover:scale-110 bg-white text-black ring-2 ring-black superflex active:scale-90`}
+            >
               <h1 className=" font-bold mb-[3px]">+</h1>
             </div>
           </div>
-          <h1 className=" font-extrabold">${resultPrice.toFixed(1)}</h1>
+          <h1 className=" font-extrabold ">
+            ${" "}
+            <span className=" border-b-2 border-white pb-1">
+              {resultPrice.toFixed(1)}
+            </span>
+          </h1>
         </div>
-      </div>
-      <div className="">
-        <button className="btn text-black scale-75">Add to card</button>
-        <button className="btn text-black scale-75">Buy now</button>
-      </div>
+      </motion.div>
+      <motion.div
+        variants={variantsAnimation}
+        initial={isWindowBig ? "textInitialBig" : "textInitialSmall"}
+        animate={isWindowBig ? "textAnimateBig" : "textAnimateSmall"}
+        transition={{ delay: 0.8, stiffness: 150, damping: 50 }}
+        className=""
+      >
+        <button
+          onClick={() => {
+            if(fruitNumber==0){
+
+                setBuy((prev) => {
+                    return {...prev, 0:counter}
+                })
+            }
+            if(fruitNumber==1){
+
+                setBuy((prev) => {
+                    return {...prev, 1:counter}
+                })
+            }
+            if(fruitNumber==2){
+
+                setBuy((prev) => {
+                    return {...prev, 2:counter}
+                })
+            }
+          }}
+          className="btn text-black text-sm scale-75 lg:scale-125 lg:mx-6"
+        >
+          Add to card
+        </button>
+        <button
+          onClick={() => {
+            setMainClick(false);
+            setIsCartVisible(true);
+            setDelayCart(true);
+          }}
+          className="btn text-black text-sm scale-75 lg:scale-125 lg:mx-6"
+        >
+          Buy now
+        </button>
+      </motion.div>
+      
     </motion.div>
   );
 };
